@@ -29,7 +29,6 @@
 
     app.set('view engine', 'ejs'); // Configure ejs for templating
 
-    // Configure Passport
     app.use(session({
         secret: secret.sessionSecret,
         saveUninitialized: true,
