@@ -27,7 +27,7 @@
             email        : String,
             name         : String
         },
-        thirty7signals   : {
+        basecamp   : {
             id           : String,
             token        : String,
             email        : String,

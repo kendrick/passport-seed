@@ -90,22 +90,22 @@
             </div>
         </div>
 
-        <!-- 37SIGNALS INFORMATION -->
+        <!-- BASECAMP INFORMATION -->
         <div>
             <div class="well">
-                <h3>37signals</h3>
+                <h3>Basecamp</h3>
 
-                <% if (user.thirty7signals.token) { %>
+                <% if (user.basecamp.token) { %>
                     <p>
-                        <strong>id</strong>: <%= user.thirty7signals.id %><br>
-                        <strong>token</strong>: <%= user.thirty7signals.token %><br>
-                        <strong>email</strong>: <%= user.thirty7signals.email %><br>
-                        <strong>name</strong>: <%= user.thirty7signals.name %>
+                        <strong>id</strong>: <%= user.basecamp.id %><br>
+                        <strong>token</strong>: <%= user.basecamp.token %><br>
+                        <strong>email</strong>: <%= user.basecamp.email %><br>
+                        <strong>name</strong>: <%= user.basecamp.name %>
                     </p>
 
-                    <a href="/unlink/37signals" class="btn">Unlink</a>
+                    <a href="/unlink/basecamp" class="btn">Unlink</a>
                 <% } else { %>
-                    <a href="/connect/37signals" class="btn">Connect Basecamp</a>
+                    <a href="/connect/basecamp" class="btn">Connect Basecamp</a>
                 <% } %>
             </div>
         </div>

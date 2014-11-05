@@ -59,8 +59,8 @@
             })
         );
 
-        app.get('/auth/37signals', passport.authenticate('37signals'));
-        app.get('/auth/37signals/callback',
+        app.get('/auth/basecamp', passport.authenticate('37signals'));
+        app.get('/auth/basecamp/callback',
             passport.authenticate('37signals', {
                 successRedirect : '/profile',
                 failureRedirect : '/'
@@ -149,16 +149,16 @@
             });
         });
 
-        app.get('/connect/37signals', passport.authorize('37signals', { scope : 'email' }));
-        app.get('/connect/37signals/callback',
+        app.get('/connect/basecamp', passport.authorize('37signals', { scope : 'email' }));
+        app.get('/connect/basecamp/callback',
             passport.authorize('37signals', {
                 successRedirect : '/profile',
                 failureRedirect : '/'
             })
         );
-        app.get('/unlink/37signals', function (req, res) {
-            var user                  = req.user;
-            user.thirty7signals.token = undefined;
+        app.get('/unlink/basecamp', function (req, res) {
+            var user            = req.user;
+            user.basecamp.token = undefined;
 
             user.save(function (err) {
                res.redirect('/profile');

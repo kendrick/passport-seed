@@ -23,10 +23,10 @@
             'callbackURL'  : BASE_CALLBACK_URL + '/google/callback'
         },
 
-        'thirty7signals' : {
-            'clientID'     : secret.apiKeys.thirty7signals.clientID,
-            'clientSecret' : secret.apiKeys.thirty7signals.clientSecret,
-            'callbackURL'  : BASE_CALLBACK_URL + '/37signals/callback'
+        'basecamp' : {
+            'clientID'     : secret.apiKeys.basecamp.clientID,
+            'clientSecret' : secret.apiKeys.basecamp.clientSecret,
+            'callbackURL'  : BASE_CALLBACK_URL + '/basecamp/callback'
         }
     };
 })();
