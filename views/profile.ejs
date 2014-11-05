@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <title>Node Authentication</title>
+</head>
+<body>
+<div class="container">
+    <div class="page-header text-center">
+        <h1>Profile Page</h1>
+        <a href="/logout" class="btn">Logout</a>
+    </div>
+
+    <div class="row">
+        <!-- LOCAL INFORMATION -->
+        <div>
+            <div class="well">
+                <h3>Local</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn">Connect Local</a>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- FACEBOOK INFORMATION -->
+        <div>
+            <div class="well">
+                <h3>Facebook</h3>
+
+                <% if (user.facebook.token) { %>
+                    <p>
+                        <strong>id</strong>: <%= user.facebook.id %><br>
+                        <strong>token</strong>: <%= user.facebook.token %><br>
+                        <strong>email</strong>: <%= user.facebook.email %><br>
+                        <strong>name</strong>: <%= user.facebook.name %>
+                    </p>
+
+                    <a href="/unlink/facebook" class="btn">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/facebook" class="btn">Connect Facebook</a>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- TWITTER INFORMATION -->
+        <div>
+            <div class="well">
+                <h3>Twitter</h3>
+
+                <% if (user.twitter.token) { %>
+                    <p>
+                        <strong>id</strong>: <%= user.twitter.id %><br>
+                        <strong>token</strong>: <%= user.twitter.token %><br>
+                        <strong>username</strong>: <%= user.twitter.username %><br>
+                        <strong>displayName</strong>: <%= user.twitter.displayName %>
+                    </p>
+
+                    <a href="/unlink/twitter" class="btn">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/twitter" class="btn">Connect Twitter</a>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- GOOGLE INFORMATION -->
+        <div>
+            <div class="well">
+                <h3>Google</h3>
+
+                <% if (user.google.token) { %>
+                    <p>
+                        <strong>id</strong>: <%= user.google.id %><br>
+                        <strong>token</strong>: <%= user.google.token %><br>
+                        <strong>email</strong>: <%= user.google.email %><br>
+                        <strong>name</strong>: <%= user.google.name %>
+                    </p>
+
+                    <a href="/unlink/google" class="btn">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/google" class="btn">Connect Google</a>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- 37SIGNALS INFORMATION -->
+        <div>
+            <div class="well">
+                <h3>37signals</h3>
+
+                <% if (user.thirty7signals.token) { %>
+                    <p>
+                        <strong>id</strong>: <%= user.thirty7signals.id %><br>
+                        <strong>token</strong>: <%= user.thirty7signals.token %><br>
+                        <strong>email</strong>: <%= user.thirty7signals.email %><br>
+                        <strong>name</strong>: <%= user.thirty7signals.name %>
+                    </p>
+
+                    <a href="/unlink/37signals" class="btn">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/37signals" class="btn">Connect Basecamp</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
