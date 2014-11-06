@@ -13,19 +13,41 @@
         // Call User.findOne asynchronously when data is sent back
         process.nextTick(function () {
 
+            var findByEmail = {
+                $or: [
+                    { 'local.email'   : email },
+                    { 'google.email'  : email },
+                    { 'facebook.email': email },
+                    { 'basecamp.email': email }
+                ]
+            };
+
             // Find a user whose email is the same as the forms email. Check
             // to see if the user trying to login already exists.
-            User.findOne({ 'local.email': email }, function (err, existingUser) {
+            User.findOne(findByEmail, function (err, existingUser) {
                 if (err) {
                     return done(err);
                 }
 
                 // Check to see if a user with that email already exists
                 if (existingUser) {
-                    return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-                }
+                    if (existingUser.local.email === undefined) {
+                        existingUser.local.email    = email;
+                        existingUser.local.password = existingUser.generateHash(password);
 
-                if (req.user) {
+                        existingUser.save(function (err) {
+                            if (err) {
+                               throw err;
+                            }
+
+                            return done(null, existingUser);
+                        });
+                    }
+                    else {
+                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                    }
+                }
+                else if (req.user) {
                     var user            = req.user;
                     user.local.email    = email;
                     user.local.password = user.generateHash(password);
@@ -38,8 +60,8 @@
                         return done(null, user);
                     });
                 }
-                // We're not logged in, so create a brand new user
                 else {
+                    // We're not logged in, so create a brand new user
                     var newUser = new User();
 
                     // Set local credentials
