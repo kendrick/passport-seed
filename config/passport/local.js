@@ -30,6 +30,7 @@
                 }
 
                 // Check to see if a user with that email already exists
+                // connected via oAuth (but without a local auth account)
                 if (existingUser) {
                     if (existingUser.local.email === undefined) {
                         existingUser.local.email    = email;
