@@ -1,5 +1,5 @@
 {
-  "name": "chronicle",
+  "name": "passport-seed",
   "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "latest",
