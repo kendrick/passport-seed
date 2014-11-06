@@ -5,6 +5,9 @@
     var bcrypt   = require('bcrypt-nodejs');
 
     var userSchema = mongoose.Schema({
+        isActive: { type: Boolean, default: false },
+        created:  { type: Date, default: Date.now() },
+
         local            : {
             email        : String,
             password     : String
@@ -27,7 +30,7 @@
             email        : String,
             name         : String
         },
-        basecamp   : {
+        basecamp         : {
             id           : String,
             token        : String,
             email        : String,
